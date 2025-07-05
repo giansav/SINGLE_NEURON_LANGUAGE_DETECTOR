@@ -5,7 +5,7 @@ IL SUO SCOPO E' FORNIRE UN ESEMPIO MINIMALE DI INTELLIGENZA ARTIFICIALE DA UTILI
 VARIE VERSIONI VERRANNO SVILUPPATE ALLO SCOPO DI MOSTRARE LE MODIFICHE CHE PORTANO A UN MIGLIORAMENTO DELLA PERFORMANCE.
 
 
-# CARATTERISTICHE GENERALI DI TUTTE LE VERSIONI
+# Caratteristiche generali di tutte le versioni del programma
 
 I codici non si avvalgono mai di importazioni di librerie o di dipendenze e sono sempre divisi in 3 parti:
 
