@@ -68,10 +68,7 @@ while True:
         words_num = len(words)
         return words_num
 
-    num = count_words(text)
-    print(f"\nIl testo inserito è composto di {num} parole.")
-
-
+   
     # funzione 1: quante parole (in percentuale) del testo inserito finiscono per vocale?
     def check_vowels_before_spaces(text, words_num):
         vowels = "aeiouAEIOUàèéìòù"
@@ -91,10 +88,6 @@ while True:
         return count1, value
 
 
-    vowels_count, value1 = check_vowels_before_spaces(text, num)
-    print(f"\nNel testo inserito ci sono {vowels_count} parole che finiscono con una vocale. Pertanto il valore del primo input neurale è {value1}")
-
-
     # funzione 2: quanti articoli o preposizioni ci sono nel testo inserito?
     def check_articles(text):
         articles = {"il", "lo", "la", "gli", "le", "uno", "una", "di", "da", "in", "con", "su", "per", "tra", "fra", "del", "dal", 
@@ -111,10 +104,7 @@ while True:
         else:
             value = 0.7
         return count2, value
-
-    articles_found, value2 = check_articles(text)
-    print(f"\nNel testo inserito ci sono {articles_found} articoli tipici dell'italiano. Pertanto il valore del secondo input neurale è {value2}")
-
+    
 
     # funzione 3: quanti digrammi/trigrammi/quadrigrammi tipici dell'italiano ci sono?
     def check_strings(text):
@@ -132,9 +122,13 @@ while True:
             value = 0.7
         return count3, value
 
-    strings_found, value3 = check_strings(text)
-    print(f"\nNel testo inserito ci sono {strings_found} digrammi/trigrammi/quadrigrammi tipici dell'italiano. Pertanto il valore del terzo input neurale è {value3}")
 
+    # eseguiamo le funzioni per il calcolo degli input neurali
+    num = count_words(text)
+    vowels_count, value1 = check_vowels_before_spaces(text, num)
+    articles_found, value2 = check_articles(text)
+    strings_found, value3 = check_strings(text)
+    
 
 
     # (3) NEURONE SINGOLO
@@ -146,21 +140,28 @@ while True:
             output += bias
         return output
 
-    # calcolo output
+
+    # calcolo dell'output neurale
     weights = [0.30, 0.42, 0.28]
     bias = 0.05
     values = [value1, value2, value3]
 
     output = compute_neuron_output(values, weights, bias)
-    print(f"\nIl valore dell'output neurale è {output:.3f}. Pertanto...")
-
+    
+    
     # comunicazione della conclusione raggiunta dal neurone
+    print(f"\nIl testo inserito è composto di {num} parole.")
+    print(f"\nOsservo che in esso ci sono: \n(1) {vowels_count} parole che finiscono con una vocale; \n(2) {articles_found} articoli tipici dell'italiano;\n(3) {strings_found} digrammi/trigrammi/quadrigrammi tipici dell'italiano. ")
+    print(f"\nIn base a queste osservazioni calcolo un valore dell'output neurale pari a {output:.3f}. E per questo...")
+
+    
     if output >= 0.65:
         print("...sono piuttosto sicuro che il testo inserito sia scritto in italiano.\n")
     elif output <= 0.45:
         print("...penso che il testo inserito non sia scritto in italiano.\n")
     else:
         print("...non sono sicuro che il testo inserito sia scritto in italiano.\n")
+
 
 
     # === FINE PROGRAMMA ===
