@@ -22,9 +22,9 @@ All'interno dei codici c'è una descrizione delle loro caratteristiche specifich
 
 - La versione 1 usa un neurone con 3 input e 1 output e assegna alle features dei pesi calcolati in maniera empirica.
 - La versione 2 usa un neurone con 5 input e 1 output e assegna alle features dei pesi calcolati in maniera empirica.
-- Il programma WightsOptimizer genera casualmente 50 vettori di 5 pesi, li testa su un dataset di 40 frasi (25 in italiano e 15 in altre lingue) e restituisce il vettore con la perforance (percentuale di successo) migliore. Si nota che il vettore generato conserva grosso modo le stesse proporzioi di peso tra le features che erano state stabilite nelle versioni 1 e 2 sulla base di ragionamenti empirici.
-- La versione 3 è identica alla versione 2 ma, anzichè assegnare in maniera empirica il peso alle features, usa un vettore generato da WeightsOptmizer.
-- Dalle prove fatte, risulta che la versione 3 è quella con la migliore performance. Risulta anche che usare un dataset molto più grande per la generazione del vettore dei pesi non implica un miglioramento significativo della performance.
+- Il programma WeightsOptimizer genera casualmente 50 vettori di 5 pesi, li testa su un dataset di 40 frasi (25 in italiano e 15 in altre lingue) e restituisce il vettore con la performance (percentuale di successo) migliore. Si nota che il vettore scelto da WeightsOptimizer conserva in genere le stesse proporzioni di peso tra le features che erano state stabilite nelle versioni 1 e 2 sulla base di ragionamenti empirici.
+- La versione 3 è identica alla versione 2 ma, anzichè assegnare in maniera empirica il peso alle features, usa un vettore scelto da WeightsOptimizer.
+- Dalle prove fatte risulta che la versione 3 è quella con la migliore performance. Risulta anche che usare un dataset molto più grande per la generazione del vettore dei pesi non implica un miglioramento significativo della performance.
 
 
 
