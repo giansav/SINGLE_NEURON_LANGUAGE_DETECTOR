@@ -1,95 +1,40 @@
-DATASET UTILIZZATI PER TESTARE I MODELLI
+DATASET UTILIZZATO DAL WEIGHTS OPTIMIZER PER GENERARE E TESTARE I PESI DEGLI INPUT NEURALI
 
   
-TESTI IN ITALIANO
-
-1.	Il gatto dorme sulla sedia.
-2.	Ho mangiato una pizza deliziosa ieri sera.
-3.	La macchina è parcheggiata sotto casa.
-4.	Stanno giocando a calcio nel cortile.
-5.	Il professore ha spiegato bene la lezione.
-6.	Sono andato al mare con gli amici.
-7.	Questo libro parla di storia medievale.
-8.	La ragazza indossa un vestito blu.
-9.	Abbiamo visitato Roma la settimana scorsa.
-10.	L'aria è fresca in montagna al mattino.
-11.	Ho comprato il pane e il latte.
-12.	Andiamo al cinema stasera?
-13.	Gli studenti preparano l'esame con attenzione.
-14.	Questa è la mia canzone preferita.
-15.	Il telefono squilla continuamente.
-16.	C'è un gatto sul tetto.
-17.	Hanno sistemato la stanza in fretta.
-18.	Il tram arriva ogni dieci minuti.
-19.	Ho perso le chiavi della macchina.
-20.	I bambini giocano felici nel parco.
-21.	Il sole tramontava lentamente dietro le colline mentre il vento accarezzava gli alberi silenziosi.
-22.	Ho letto un libro molto interessante sulla storia delle esplorazioni polari durante l’Ottocento.
-23.	Quando arrivi a casa, ricordati di annaffiare le piante e spegnere tutte le luci.
-24.	L’insegnante spiegò con pazienza la lezione, rispondendo a tutte le domande degli studenti.
-25.	In estate mi piace fare lunghe passeggiate al tramonto, ascoltando musica e respirando l’aria calda.
-26.	Nonostante la pioggia insistente, decisero comunque di andare al parco con gli ombrelli colorati.
-27.	Abbiamo ordinato la pizza da asporto perché nessuno aveva voglia di cucinare quella sera.
-28.	Gli scienziati stanno lavorando a una nuova tecnologia per migliorare la qualità dell’aria urbana.
-29.	Ogni mattina, prima di iniziare a lavorare, bevo un caffè seduto in veranda.
-30.	Il cane abbaiava furiosamente ogni volta che sentiva passare qualcuno davanti al cancello.
-31.	Mia nonna prepara ancora la marmellata di albicocche seguendo una ricetta antichissima di famiglia.
-32.	Durante il viaggio in treno ho incontrato una persona simpatica con cui ho parlato a lungo.
-33.	L’autunno è la mia stagione preferita per i suoi colori caldi e l’atmosfera malinconica.
-34.	I bambini giocavano in giardino finché il cielo non si è coperto di nuvole minacciose.
-35.	Abbiamo camminato ore nel bosco cercando funghi, ma siamo tornati a casa a mani vuote.
-36.	Ogni volta che torno al mio paese d’origine, mi emoziono rivedendo quei luoghi familiari.
-37.	La vispa Teresa avea fra l’erbetta al volo sorpresa gentil farfalletta.
-38.	Nel mazzo del cammin di nostra vita mi ritrovai per una selva oscura.
-39.	Né più mai toccherò le sacre sponde ove il mio corpo fanciullesco e nudo giacque un tempo, e la mia vita era un tesoro di sogni e d'illusioni.
-40.	Qui su l’arida schiena Del formidabil monte Sterminator Vesevo, La qual null’altro allegra arbor nè fiore, Tuoi cespi solitari intorno spargi, Odorata ginestra, Contenta dei deserti.
-
-
-
-TESTI NON IN ITALIANO
-
-1.	Le chat dort sur la chaise. (francese)
-2.	Ich habe gestern eine Pizza gegessen. (tedesco)
-3.	La voiture est garée devant la maison. (francese)
-4.	Están jugando al fútbol en el patio. (spagnolo)
-5.	Der Lehrer hat die Lektion gut erklärt. (tedesco)
-6.	Fuimos a la playa con los amigos. (spagnolo)
-7.	Ce livre parle de l'histoire médiévale. (francese)
-8.	La ragazza porta un vestito azul. (misto - errore voluto)
-9.	Hemos visitado Madrid la semana pasada. (spagnolo)
-10.	L'air est frais en montagne le matin. (francese)
-11.	Ich habe Brot und Milch gekauft. (tedesco)
-12.	¿Vamos al cine esta noche? (spagnolo)
-13.	Los estudiantes estudian con atención. (spagnolo)
-14.	Esta es mi canción favorita. (spagnolo)
-15.	Das Telefon klingelt ständig. (tedesco)
-16.	Hay un gato en el techo. (spagnolo)
-17.	Ils ont rangé la chambre rapidement. (francese)
-18.	Die Straßenbahn kommt alle zehn Minuten. (tedesco)
-19.	He perdido las llaves del coche. (spagnolo)
-20.	Les enfants jouent dans le parc. (francese)
-21.	I usually drink a cup of coffee before checking my emails in the morning. (inglese)
-22.	The children were playing football in the park while their parents talked nearby. (inglese)
-23.	J’ai acheté du pain frais ce matin en passant devant la boulangerie du quartier. (francese)
-24.	Elle aime écouter de la musique classique quand elle lit des romans historiques. (francese)
-25.	Fuimos al mercado esta mañana y compramos frutas frescas, verduras y un poco de pan. (spagnolo)
-26.	Los niños jugaban en la playa mientras los adultos preparaban la comida. (spagnolo)
-27.	Jeden Sonntag gehen wir spazieren im Wald, egal ob es regnet oder schneit. (tedesco)
-28.	Ich habe gestern ein interessantes Buch über die Geschichte Europas gelesen. (tedesco)
-29.	Elke ochtend maakt hij een wandeling door het park voordat hij naar zijn werk gaat. (olandese)
-30.	We hebben gisterenavond pizza gegeten en daarna samen een film gekeken. (olandese)
-31.	Nós viajamos para o sul de Portugal no verão passado e visitamos várias cidades históricas. (portoghese)
-32.	Ele gosta de ler livros enquanto toma um café no final da tarde. (portoghese)
-33.	Każdego ranka piję herbatę i czytam gazetę, zanim wyjdę z domu. (polacco)
-34.	Dzieci bawiły się na placu zabaw do późnego popołudnia. (polacco)
-35.	Každý víkend jezdíme na chalupu a trávíme tam čas s rodinou. (ceco)
-36.	Včera jsme byli v divadle a viděli jsme velmi zajímavé představení. (ceco)
-37.	Demain, dès l’aube, à l’heure où blanchit la campagne, Je partirai. Vois-tu, je sais que tu m’attends. J’irai par la forêt, j’irai par la montagne. (francese)
-38.	A shallow depth of field produces flames in a dimmed distance, harlequin patterned jit or juke, footwork. Each muscle in the face follows a separate choreographic text. (inglese)
-39.	Sucede que entro en las sastrerías y en los cines marchito, impenetrable, como un cisne de fieltro navegando en un agua de origen y ceniza. (spagnolo)
-40.	Ich weiß nicht, was soll es bedeuten, Dass ich so traurig bin; Ein Märchen aus alten Zeiten, Das kommt mir nicht aus dem Sinn. Die Luft ist kühl, und es dunkelt, Und ruhig fließt der Rhein; Der Gipfel des Berges funkelt, Im Abendsonnenschein.
-
-
-
-
-
+dataset = [
+    ("Oggi ho comprato del pane fresco al mercato vicino casa mia.", 1),
+    ("Je suis allé au marché pour acheter du pain.", 0),
+    ("I usually drink a cup of coffee before checking my emails in the morning.", 0),
+    ("Il gatto dorme sulla sedia.", 1),
+    ("Ho mangiato una pizza deliziosa ieri sera.", 1),
+    ("La macchina è parcheggiata sotto casa.", 1),
+    ("La voiture est garée devant la maison.", 0),
+    ("Der Lehrer hat die Lektion gut erklärt.", 0),
+    ("Elle aime écouter de la musique classique quand elle lit des romans historiques.", 0),
+    ("Stanno giocando a calcio nel cortile.", 1),
+    ("L’autunno è la mia stagione preferita per i suoi colori caldi e l’atmosfera malinconica.", 1),
+    ("I bambini giocavano in giardino finché il cielo non si è coperto di nuvole minacciose.", 1),
+    ("J’ai acheté du pain frais ce matin en passant devant la boulangerie du quartier.", 0),
+    ("Abbiamo camminato ore nel bosco cercando funghi, ma siamo tornati a casa a mani vuote.", 1),
+    ("La ragazza indossa un vestito blu.", 1),
+    ("Abbiamo visitato Roma la settimana scorsa.", 1),
+    ("Los estudiantes estudian con atención.", 0),
+    ("Každý víkend jezdíme na chalupu a trávíme tam čas s rodinou.", 0),
+    ("L'aria è fresca in montagna al mattino.", 1),
+    ("Ho comprato il pane e il latte.", 1),
+    ("The children were playing football in the park while their parents talked nearby.", 0),
+    ("Andiamo al cinema stasera?", 1),
+    ("A shallow depth of field produces flames in a dimmed distance, harlequin patterned jit or juke, footwork. Each muscle in the face follows a separate choreographic text.", 0),
+    ("Sucede que entro en las sastrerías y en los cines marchito, impenetrable, como un cisne de fieltro navegando en un agua de origen y ceniza.", 0),
+    ("Il sole tramontava lentamente dietro le colline mentre il vento accarezzava gli alberi silenziosi.", 1),
+    ("Ho letto un libro molto interessante sulla storia delle esplorazioni polari durante l’Ottocento.", 1),
+    ("Les enfants jouent dans le parc.", 0),
+    ("Quando arrivi a casa, ricordati di annaffiare le piante e spegnere tutte le luci.", 1),
+    ("Los niños jugaban en la playa mientras los adultos preparaban la comida.", 0),
+    ("Ogni volta che torno al mio paese d’origine, mi emoziono rivedendo quei luoghi familiari.", 1),
+    ("La vispa Teresa avea fra l’erbetta al volo sorpresa gentil farfalletta.", 1),
+    ("Fuimos al mercado esta mañana y compramos frutas frescas, verduras y un poco de pan.", 0),
+    ("Nel mazzo del cammin di nostra vita mi ritrovai per una selva oscura.", 1),
+    ("Né più mai toccherò le sacre sponde ove il mio corpo fanciullesco e nudo giacque un tempo, e la mia vita era un tesoro di sogni e d'illusioni.", 1),
+    ("He perdido las llaves del coche.", 0),
+]
