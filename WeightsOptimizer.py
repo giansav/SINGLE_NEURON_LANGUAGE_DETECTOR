@@ -8,7 +8,7 @@ IL PROGRAMMA FA IL FINE TUNING DEL VETTORE DEI PESI UTILIZZATO PER LA GENERAZION
 
 ** DESCRIZIONE **
 
-Il codice genera 50 vettori di 5 pesi e li testa su un dataset di 40 frasi (25 in italiano e 15 in altre lingue).
+Il codice genera 1000 vettori (minimo 50 se non viene passato alcun valore) di 5 pesi e li testa su un dataset di 40 frasi (25 in italiano e 15 in altre lingue).
 Confrontando la percentuale di successo dei vari vettori, restituisce il vettore con la performance migliore.
 La differenza tra il numero di frasi in italiano e quello delle frasi in altre lingue serve a compensare la tendenza del modello (verificata empiricamente) a generare falsi negativi.
 
