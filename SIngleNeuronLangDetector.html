@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Single Neuron Language Detector</title>
+
+    <style>
+    
+        body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f0f2f5;
+        margin: 0;
+        padding: 0;
+        }
+
+        .container {
+        max-width: 700px;
+        margin: 10px auto;
+        background: #ffffff;
+        padding: 10px 70px 30px 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+        text-align: center;
+        color: #333;
+        }
+
+        h2 {
+        font-size: 18px;
+        color: #333;
+        }
+
+        p{
+            font-size: 16px;
+        }
+
+        textarea {
+        width: 100%;
+        height: 70px;
+        font-size: 16px;
+        padding: 10px;
+        margin-top: 20px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        resize: vertical;
+        }
+
+        button {
+        display: block;
+        margin: 20px auto;
+        padding: 12px 30px;
+        font-size: 16px;
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        }
+
+        button:hover {
+        background-color: #004d99;
+        }
+
+        .results {
+        margin-top: 30px;
+        line-height: 1.6;
+        }
+
+        .results p {
+        font-size: 14px;
+        margin-bottom: 0;
+        }
+
+        .decision {
+        font-size: 20px;
+        font-weight: bold;
+        color: blue;
+        margin-top: 0;
+        }
+  
+</style>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Single Neuron Language Detector</h1>
+        <textarea id="textInput" placeholder="Inserisci un testo (almeno 10 parole)..."></textarea>
+        <button onclick="analyzeText()">Analizza Testo</button>
+        <div id="results" class="results"></div>
+    </div>
+
+    
+    <script>
+    
+    // le funzioni traducono in JS le funzioni in python usate nelle versioni 1,2 e 3
+    
+
+    // funzione 0
+    function analyzeText() {
+        const text = document.getElementById("textInput").value.trim();
+        const resultsDiv = document.getElementById("results");
+        // messaggio in caso di testi troppo brevi per poter essere valutati 
+        if (!text || text.split(/\s+/).length < 4) {
+            resultsDiv.innerHTML = "<p>Le parole inserite non sono sufficienti. Inserisci almeno 4 parole.</p>";
+        return;
+        }
+
+        const words = text.toLowerCase().split(/\s+/);
+        const numWords = words.length;
+
+
+        // funzione 1
+        const endsWithVowel = ["a", "e", "i", "o", "u", "à", "è", "é", "ì", "ò", "ù"];
+        let vowelsCount = words.filter(w => endsWithVowel.includes(w.slice(-1))).length;
+        let value1 = (vowelsCount / numWords <= 0.4) ? 0.3 : (vowelsCount / numWords > 0.65 ? 0.9 : 0.7);
+
+
+        // funzione 2
+        const articles = new Set(["il", "lo", "la", "gli", "le", "uno", "una", "di", "da", "in", "con", "su", "per", "tra", "fra", "del", "dal", "nel", "sul", "dello", "dallo", "nello", "sullo", "della", "dalla", "nella", "sulla", "delle", "nelle", "dalle", "sulle"]);
+        let articleCount = words.filter(w => articles.has(w)).length;
+        let value2 = (articleCount === 0) ? 0.1 : (articleCount >= 3 ? 0.9 : 0.7);
+
+
+        // funzione 3
+        const patterns = ["che", "chi", "cia", "cie", "cio", "ciu", "ghe", "ghi", "gia", "già", "gio", "giò", "giu", "giù", "gna", "gne", "gni", "gno", "gnu", "gli", "glia", "glie", "glio", "gliu", "iù"];
+        let patternCount = 0;
+        const lowerText = text.toLowerCase();
+        patterns.forEach(p => { patternCount += (lowerText.split(p).length - 1); });
+        let value3 = (patternCount === 0) ? 0.3 : (patternCount >= 3 ? 0.9 : 0.7);
+
+
+        // funzione 4
+        const avgLen = words.reduce((acc, w) => acc + w.length, 0) / words.length;
+        let value4 = (avgLen < 4.5) ? 0.3 : (avgLen > 6.5 ? 0.9 : 0.7);
+
+
+        // funzione 0
+        const accents = ["à", "è", "é", "ì", "ò", "ù"];
+        let accentedCount = words.filter(w => accents.some(ac => w.includes(ac))).length;
+        let value5 = (accentedCount === 0) ? 0.2 : (accentedCount >= 2 ? 0.9 : 0.6);
+
+
+        // funzione per la generazione dell'output
+        const weights = [0.356, 0.338, 0.257, 0.032, 0.017];
+        const bias = 0.05;
+        let values = [value1, value2, value3, value4, value5];
+
+        let output = values.reduce((acc, v, i) => acc + v * weights[i], 0);
+        if (numWords < 10 && (value2 >= 0.7 || value3 >= 0.7)) output += 0.05;
+        if (output >= 0.6) output += bias;
+
+
+
+        // comunicazione della classificazione in base all'output neurale
+        let decision = "";
+        if (output >= 0.65) {
+            decision = "✅ Sono piuttosto sicuro che il testo sia scritto in italiano.";
+        } else if (output <= 0.45) {
+            decision = "❌ Penso che il testo non sia scritto in italiano.";
+        } else {
+            decision = "🤔 Non sono sicuro che il testo sia scritto in italiano.";
+        }
+
+        // rendering HTML
+        resultsDiv.innerHTML = `
+            <p><strong>Numero di parole di cui si compone il testo:</strong> ${numWords}</p>
+            <p><strong>Parole che finiscono con una vocale:</strong> ${vowelsCount} → input 1 = ${value1}</p>
+            <p><strong>Articoli/preposizioni tipici dell'italiano presenti nel testo:</strong> ${articleCount} → input 2 = ${value2}</p>
+            <p><strong>Trigrammi/digrammi/quadrigrammi tipici dell'italiano presenti nel testo:</strong> ${patternCount} → input 3 = ${value3}</p>
+            <p><strong>Lunghezza media delle parole:</strong> ${avgLen.toFixed(2)} → input 4 = ${value4}</p>
+            <p><strong>Parole accentate sull'ultima sillaba:</strong> ${accentedCount} → input 5 = ${value5}</p>
+            <h2><strong> → Output neurale = ${output.toFixed(3)}</h2>
+            <h2 class="decision">${decision}</h2>
+        `;
+        }
+    
+
+    </script>
+
+</body>
+
+</html>
