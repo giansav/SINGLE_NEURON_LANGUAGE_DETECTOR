@@ -1,9 +1,10 @@
 # SINGLE NEURON LANGUAGE DETECTOR
 
-IL PROGRAMMA STABILISCE L'APPARTENENZA DI UN TESTO ALLA LINGUA ITALIANA MEDIANTE UN SINGOLO NEURONE.  
-IL SUO SCOPO E' FORNIRE UN ESEMPIO MINIMALE DI INTELLIGENZA ARTIFICIALE DA UTILIZZARE IN UN CONTESTO DIDATTICO.
-VARIE VERSIONI VENGONO SVILUPPATE ALLO SCOPO DI MOSTRARE LE MODIFICHE CHE PORTANO A UN MIGLIORAMENTO DELLA PERFORMANCE.
+Il programma implementa un modello di perceptron (neurone singolo con input e output non binari) capace di stabilire l'appartenenza di un testo alla lingua italiana.  
+Il suo scopo è fornire un esempio minimale di intelligenza artificiale da utilizzare in contesti didattici.
+Varte versioni del programma sono state sviluppate allo scopo di mostrare come determinate modifiche nella logica portano a un migliormaento della performance.
 
+<br>
 
 # Caratteristiche generali di tutte le versioni del programma
 
